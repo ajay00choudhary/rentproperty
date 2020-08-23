@@ -1,0 +1,54 @@
+﻿@page
+@model rentproperty.Pages.Enquiry.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.inquiry[0].user_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inquiry[0].property_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inquiry[0].user_massege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inquiry[0].dateTime_inquiry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.inquiry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.property_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_massege)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateTime_inquiry)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.inquiry_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.inquiry_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.inquiry_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

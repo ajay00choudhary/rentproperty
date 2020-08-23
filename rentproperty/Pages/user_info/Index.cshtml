@@ -1,0 +1,57 @@
+﻿@page
+@model rentproperty.Pages.user_info.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>USER</h1>
+<p>
+    We are a trusted brand which for close to thirty years has been helping Kiwis into and more recently out of homes.  In fact, 94% of Kiwis trust the Mike Pero brand to sell their property (AC Nielsen 2011).And, our team are always conscious of cost and will only invest where they believe it will benefit you.
+    To view add buy property please register first.
+</p>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user_details[0].user_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user_details[0].user_phone_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user_details[0].user_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user_details[0].user_email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.user_details) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_phone_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user_email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.user_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.user_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.user_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

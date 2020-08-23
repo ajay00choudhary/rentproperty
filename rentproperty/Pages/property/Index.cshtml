@@ -1,0 +1,57 @@
+﻿@page
+@model rentproperty.Pages.property.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>property list</h1>
+<p>
+    We will always aim to achieve better value, service and results for our customers by using smarter marketing, motivated agents and a cost-effective fee structure that is generally significantly less than most other national brands.
+    We can source all the information required on your home and together with some help from you we should be able to deliver to your expectations.
+</p>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.property_details[0].property_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_details[0].property_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_details[0].property_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.property_details[0].property_value)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.property_details) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.property_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.property_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.property_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.property_value)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.property_id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.property_id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.property_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

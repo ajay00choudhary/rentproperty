@@ -1,0 +1,49 @@
+﻿@page
+@model rentproperty.Pages.Enquiry.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>inquiry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="inquiry.user_id" class="control-label"></label>
+                <input asp-for="inquiry.user_id" class="form-control" />
+                <span asp-validation-for="inquiry.user_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="inquiry.property_id" class="control-label"></label>
+                <input asp-for="inquiry.property_id" class="form-control" />
+                <span asp-validation-for="inquiry.property_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="inquiry.user_massege" class="control-label"></label>
+                <input asp-for="inquiry.user_massege" class="form-control" />
+                <span asp-validation-for="inquiry.user_massege" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="inquiry.dateTime_inquiry" class="control-label"></label>
+                <input asp-for="inquiry.dateTime_inquiry" class="form-control" />
+                <span asp-validation-for="inquiry.dateTime_inquiry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

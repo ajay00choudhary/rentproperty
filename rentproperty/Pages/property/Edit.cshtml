@@ -1,0 +1,50 @@
+﻿@page
+@model rentproperty.Pages.property.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>property_details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="property_details.property_id" />
+            <div class="form-group">
+                <label asp-for="property_details.property_name" class="control-label"></label>
+                <input asp-for="property_details.property_name" class="form-control" />
+                <span asp-validation-for="property_details.property_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="property_details.property_type" class="control-label"></label>
+                <input asp-for="property_details.property_type" class="form-control" />
+                <span asp-validation-for="property_details.property_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="property_details.property_address" class="control-label"></label>
+                <input asp-for="property_details.property_address" class="form-control" />
+                <span asp-validation-for="property_details.property_address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="property_details.property_value" class="control-label"></label>
+                <input asp-for="property_details.property_value" class="form-control" />
+                <span asp-validation-for="property_details.property_value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
